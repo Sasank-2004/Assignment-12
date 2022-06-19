@@ -1,0 +1,92 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Welcome to Overleaf --- just edit your LaTeX on the left,
+% and we'll compile it for you on the right. If you open the
+% 'Share' menu, you can invite other users to edit at the same
+% time. See www.overleaf.com/learn for more info. Enjoy!
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+% Inbuilt themes in beamer
+\documentclass{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{mathtools}
+\usepackage{amssymb}
+\providecommand{\pr}[1]{\ensuremath{\Pr\left(#1\right)}}
+\providecommand{\brak}[1]{\ensuremath{\left(#1\right)}}
+\newcommand{\Int}{\int\limits}
+
+
+
+% Theme choice:
+\usetheme{CambridgeUS}
+
+% Title page details: 
+\title{AI1110 Assignment-12} 
+\author{Gollapudi Sasank CS21BTECH11019}
+\date{\today}
+\logo{\large \LaTeX{}}
+
+
+\begin{document}
+
+% Title page frame
+\begin{frame}
+    \titlepage 
+\end{frame}
+
+% Remove logo from the next slides
+\logo{}
+
+
+% Outline frame
+\begin{frame}{Outline}
+    \tableofcontents
+\end{frame}
+
+
+% Lists frame
+\section{Question}
+\begin{frame}{Question}
+In a production process the number of defective units per hour is a Poisson distributed random variable $x$ with parameter $\lambda = 5$ . A new process is is introduced and it is observed that the hourly defectives in a 22-hour period are \\
+$x_i = 3,0,5,4,2,6,4,1,5,3,7,4,0,8,3,2,4,3,6,5,6,9$ \\
+Test the hypothesis $ \lambda = 5 $ against $ \lambda < 5$ with $ \alpha = 0.05 $
+\end{frame}
+
+\section{Solution}
+\begin{frame}{Solution}
+We shall use the sum of $x_i$ as Test Static ($q$) \\
+$ q = x_1 + x_2 + ...... + x_n$ \\
+Here $q$ is also a poisson random variable with parameter $\eta_q = n\lambda$ \\
+we need to test the hypothesis  $H_0$ ($ \lambda = 5 $) \\
+Under Hypothesis $H_0$ , $\lambda = \lambda_0 = 5$ \\
+The critical region of the hypothesis is $q<q_\alpha$ , where \\
+$ q = x_1 + x_2 + ...... + x_n = 90$ \\
+To find $q_\alpha$ we use the normal approximation method with $\alpha = 0.05$ \\
+\begin{align}
+q_\alpha &= n\lambda_0 + z_\alpha \sqrt{n\lambda_0} \\
+\end{align}
+\end{frame}
+
+\begin{frame}
+Here $ n=22,\lambda_0 = 5,\alpha = 0.05 $ ,
+\begin{align}
+\Rightarrow z_\alpha &= z_{0.05} \\
+\Rightarrow z_\alpha &= -z_{1-0.05} \\
+\Rightarrow z_\alpha &= -z_{0.95} \\
+\Rightarrow z_\alpha &= -1.645
+\end{align}
+\begin{align}
+q_\alpha &= 110 - (1.645)(\sqrt{110}) \\
+\Rightarrow q_\alpha &= 110 - 17.25 \\
+\Rightarrow q_\alpha &= 92.75
+\end{align}
+Here the Hypothesis $H_1$ is $\lambda < \lambda_0$ \\
+We accept $H_0$ iff $q > q_\alpha$. \\
+Here $ q < q_\alpha $. \\
+So we reject the hypothesis $H_0$.
+\end{frame}
+\end{document}
